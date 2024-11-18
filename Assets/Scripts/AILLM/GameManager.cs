@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
+    public AIChatController chatController;
+
     public static GameManager Instance
     {
         get { return _instance; }
@@ -34,6 +36,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            chatController.SendMessageToLLM();
+        }
     }
 }

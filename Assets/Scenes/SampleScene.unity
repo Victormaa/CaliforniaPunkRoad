@@ -555,6 +555,8 @@ GameObject:
   - component: {fileID: 1468802683}
   - component: {fileID: 1468802686}
   - component: {fileID: 1468802687}
+  - component: {fileID: 1468802689}
+  - component: {fileID: 1468802688}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -708,6 +710,33 @@ MonoBehaviour:
   audioSource: {fileID: 1468802686}
   typeSounds:
   - {fileID: 8300000, guid: c53b7c20372e444c6bd7f2ac0729bbe2, type: 3}
+--- !u!114 &1468802688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468802681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75c278da310cb243ac503a29b4e86da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputText: {fileID: 1866186510}
+  AIReply: {fileID: 1704707722}
+--- !u!114 &1468802689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468802681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3be47fcde97c149bbb6f63523ac0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatController: {fileID: 1468802688}
 --- !u!1 &1704707720
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +980,7 @@ GameObject:
   - component: {fileID: 1866186509}
   - component: {fileID: 1866186511}
   - component: {fileID: 1866186510}
+  - component: {fileID: 1866186512}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1074,6 +1104,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866186508}
   m_CullTransparentMesh: 1
+--- !u!114 &1866186512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866186508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa9fe1a696f8554eb8bfcb627961fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 1866186510}
+  letterDelay: 0.05
+  audioSource: {fileID: 0}
+  typeSounds: []
 --- !u!1 &2029615845
 GameObject:
   m_ObjectHideFlags: 0
