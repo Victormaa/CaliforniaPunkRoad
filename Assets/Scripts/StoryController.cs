@@ -17,9 +17,9 @@ public class StoryController : MonoBehaviour
 	[SerializeField]
 	private Canvas canvas = null;
 	[SerializeField]
-	private Canvas canvas1_1 = null;
+	private GameObject canvas_ForOption = null;
 	[SerializeField]
-	private Canvas canvas1_2 = null;
+	private GameObject canvas_ForStory = null;
 
 	//public TMP_Text storyText;
 	public Button buttonPrefab;
@@ -92,10 +92,10 @@ public class StoryController : MonoBehaviour
 	}
 	void RemoveButtonCanvasChildren()
 	{
-		int childCount = canvas1_1.transform.childCount;
+		int childCount = canvas_ForOption.transform.childCount;
 		for (int i = childCount - 1; i >= 0; --i)
 		{
-			Destroy(canvas1_1.transform.GetChild(i).gameObject);
+			Destroy(canvas_ForOption.transform.GetChild(i).gameObject);
 		}
 	}
 	void OnClickChoiceButton(Choice choice)
@@ -115,7 +115,7 @@ public class StoryController : MonoBehaviour
 	{
 		// Creates the button from a prefab
 		Button choice = Instantiate(buttonPrefab) as Button;
-		choice.transform.SetParent(canvas1_1.transform, false);
+		choice.transform.SetParent(canvas_ForOption.transform, false);
 
 		// Gets the text from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text>();
