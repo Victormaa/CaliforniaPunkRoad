@@ -401,8 +401,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -554,7 +554,6 @@ GameObject:
   - component: {fileID: 1468802682}
   - component: {fileID: 1468802683}
   - component: {fileID: 1468802686}
-  - component: {fileID: 1468802687}
   - component: {fileID: 1468802689}
   - component: {fileID: 1468802688}
   m_Layer: 0
@@ -596,7 +595,7 @@ MonoBehaviour:
   canvas_ForOption: {fileID: 1758400324}
   canvas_ForStory: {fileID: 1790514938}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
-  textDisplay: {fileID: 1468802687}
+  textDisplay: {fileID: 2029615849}
 --- !u!82 &1468802686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -693,23 +692,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1468802687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468802681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa9fe1a696f8554eb8bfcb627961fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 2029615847}
-  letterDelay: 0.05
-  audioSource: {fileID: 1468802686}
-  typeSounds:
-  - {fileID: 8300000, guid: c53b7c20372e444c6bd7f2ac0729bbe2, type: 3}
 --- !u!114 &1468802688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputText: {fileID: 1866186510}
   AIReply: {fileID: 1704707722}
+  textDisplay: {fileID: 1704707724}
 --- !u!114 &1468802689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +731,7 @@ GameObject:
   - component: {fileID: 1704707721}
   - component: {fileID: 1704707723}
   - component: {fileID: 1704707722}
+  - component: {fileID: 1704707724}
   m_Layer: 5
   m_Name: AIConversationView
   m_TagString: Untagged
@@ -821,15 +805,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.24
+  m_fontSize: 42.25
   m_fontSizeBase: 32.24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -871,6 +855,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704707720}
   m_CullTransparentMesh: 1
+--- !u!114 &1704707724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704707720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa9fe1a696f8554eb8bfcb627961fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 1704707722}
+  letterDelay: 0.03
+  audioSource: {fileID: 0}
+  typeSounds: []
 --- !u!1 &1758400324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1131,6 +1131,7 @@ GameObject:
   - component: {fileID: 2029615846}
   - component: {fileID: 2029615848}
   - component: {fileID: 2029615847}
+  - component: {fileID: 2029615849}
   m_Layer: 5
   m_Name: Story
   m_TagString: Untagged
@@ -1254,6 +1255,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029615845}
   m_CullTransparentMesh: 1
+--- !u!114 &2029615849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029615845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa9fe1a696f8554eb8bfcb627961fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 2029615847}
+  letterDelay: 0.03
+  audioSource: {fileID: 0}
+  typeSounds: []
 --- !u!1 &2056670455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000015259, y: 648.74}
+  m_AnchoredPosition: {x: 0.000015259, y: 603}
   m_SizeDelta: {x: 594.8062, y: 48.0835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056670457
@@ -1350,7 +1367,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 28
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

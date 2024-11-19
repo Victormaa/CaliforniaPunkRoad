@@ -16,9 +16,9 @@ public class WebApiClient
 {
     private static ClientWebSocket webSocket; // 用于 WebSocket 连接的实例
     private static CancellationToken cancellationToken; // 取消任务的令牌
-    private const string xAppId = "70eef98a"; // 应用 APPID（替换为你的实际 APPID）
-    private const string apiSecret = "YTdjMjY0Y2YyYjM0OGJmZDk1MjQwYWYw"; // 接口密钥（替换为你的实际 API Secret）
-    private const string apiKey = "aaa1842a4cc48558d75eb993ab7eb3b0"; // 接口密钥（替换为你的实际 API Key）
+    private const string xAppId = "0d189f7f"; // 应用 APPID（替换为你的实际 APPID）
+    private const string apiSecret = "Zjc3M2QzNjBlMmUwZWU1YTEwYWRlMmRj"; // 接口密钥（替换为你的实际 API Secret）
+    private const string apiKey = "8d50a532188a78634866483c75e0e41e"; // 接口密钥（替换为你的实际 API Key）
     private static string hostUrl = "wss://spark-api.xf-yun.com/v3.5/chat"; // WebSocket 接口 URL
 
     /// <summary>
@@ -62,9 +62,6 @@ public class WebApiClient
                         }
                     }
                 };
-                //foreach (var item in request.payload.message.text)
-                //{
-                //    Debug.Log($"Role: {item.role}, Content: {item.content}");
 
                 //};//Debug测试列表
                 string jsonString = JsonConvert.SerializeObject(request); // 将请求体序列化为 JSON 字符串

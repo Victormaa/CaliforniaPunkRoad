@@ -13,15 +13,6 @@ public class GameManager : MonoBehaviour
         get { return _instance; }
     }
 
-    private Contact _carAI;
-    public Contact GetCarAI()
-    {
-        if (_carAI == null)
-            _carAI = new Contact(0, "CarAI");
-
-        return _carAI;
-    }
-
     void Awake()
     {
         _instance = this;
@@ -38,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            chatController.SendMessageToLLM();
+            StartCoroutine(chatController.SendMessageToLLM());// chatController.SendMessageToLLM();
         }
     }
 }

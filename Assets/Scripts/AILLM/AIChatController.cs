@@ -20,10 +20,11 @@ public class AIChatController : MonoBehaviour
         
     }
 
-    public void SendMessageToLLM()
+    public IEnumerator SendMessageToLLM()
     {
-
-        var reply = NPCMessageGenerator.GetCarAIMessage(playerInputText.text);
-
+        var task = NPCMessageGenerator.GetCarAIMessage(playerInputText.text);
+        yield return new WaitUntil(() => task.IsCompleted);
+        string reply = task.Result;
+        textDisplay.ShowText(reply);
     }
 }
