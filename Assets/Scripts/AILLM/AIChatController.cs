@@ -25,6 +25,6 @@ public class AIChatController : MonoBehaviour
         var task = NPCMessageGenerator.GetCarAIMessage(playerInputText.text);
         yield return new WaitUntil(() => task.IsCompleted);
         string reply = task.Result;
-        textDisplay.ShowText(reply);
+        textDisplay.TypingText(reply);
     }
 }

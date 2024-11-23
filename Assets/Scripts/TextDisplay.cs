@@ -11,8 +11,14 @@ public class TextDisplay : MonoBehaviour
 
     private Coroutine typingCoroutine;
 
+    public bool isTyping;
+
+    private void Awake()
+    {
+        audioSource = GameManager.Instance.publicAudioSource;
+    }
     // 展示逐步显示文本的方法
-    public void ShowText(string fullText)
+    public void TypingText(string fullText)
     {
         if (typingCoroutine != null)
         {
@@ -21,7 +27,18 @@ public class TextDisplay : MonoBehaviour
 
         typingCoroutine = StartCoroutine(TypeText(fullText));
     }
+    public void ShowTextImmediately(string fullText)
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
 
+        textUI.text = ""; // 清空当前文字
+        textUI.text = fullText;
+        PlaySound(); // 播放音效
+        isTyping = false;
+    }
     private IEnumerator TypeText(string fullText)
     {
         textUI.text = ""; // 清空当前文字
@@ -29,8 +46,11 @@ public class TextDisplay : MonoBehaviour
         {
             textUI.text += letter; // 添加字母
             PlaySound(); // 播放音效
+            isTyping = true;
             yield return new WaitForSeconds(letterDelay); // 等待
         }
+
+        isTyping = false;
     }
 
     private void PlaySound()

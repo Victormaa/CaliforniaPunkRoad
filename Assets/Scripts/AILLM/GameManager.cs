@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public AIChatController chatController;
 
+    public AudioSource publicAudioSource;
+
     public static GameManager Instance
     {
         get { return _instance; }
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        publicAudioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -29,7 +32,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            StartCoroutine(chatController.SendMessageToLLM());// chatController.SendMessageToLLM();
+            if(chatController!= null)
+                StartCoroutine(chatController.SendMessageToLLM());// chatController.SendMessageToLLM();
         }
     }
 }
