@@ -17,7 +17,10 @@ public class AIChatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    SendMessageToLLM();// chatController.SendMessageToLLM();
+        //}
     }
 
     public IEnumerator SendMessageToLLM()

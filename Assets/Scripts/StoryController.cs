@@ -13,6 +13,7 @@ public class StoryController : MonoBehaviour
 		None,
 		PressEnter,
 		InputText,
+		AIChat,
     }
 
 	public static event Action<Story> OnCreateStory;
@@ -21,18 +22,11 @@ public class StoryController : MonoBehaviour
     private TextAsset inkJSONAsset = null;
     public Story story;
 
-	[SerializeField]
-	private Canvas canvas = null;
-	[SerializeField]
-	private GameObject canvas_ForOption = null;
-	[SerializeField]
-	private GameObject canvas_ForStory = null;
-
-	//public TMP_Text storyText;
-	public Button buttonPrefab;
-
 	private StoryProcessState curProcessState = StoryProcessState.None;
 	private StoryProcessState preProcessState = StoryProcessState.None;
+	private StoryProcessState beforAIState = StoryProcessState.None;
+	private bool isTransferingToAIState = false;
+	private bool isTransferingToBeforState = false;
 
 	[Header("StoryObject")]
 	public Transform storyListContainer; // 显示消息的容器
@@ -45,10 +39,19 @@ public class StoryController : MonoBehaviour
 	public TMP_InputField inputField;
 	public GameObject inputItemPrefab; // 消息小预构体
 
+	[Header("InputFieldObject")]
+	public GameObject aiItemPrefab;
+	public Button AITriggerButton;
+	// 将十六进制颜色转换为 Unity 的 Color
+	Color buttonTriggeredColor = new Color(50f / 255f, 79f / 255f, 255f / 255f);
+	Color buttonClosedColor = new Color(0f, 0f, 0f);
+
 	private void Awake()
     {
 		textDisplays = new Stack<TextDisplay>();
 		inputField.interactable = false;
+		AITriggerButton.onClick.AddListener(AIButtonFunction);
+
 		StartStory();
 	}
 	// Creates a new Story object with the compiled story which we can then play!
@@ -104,56 +107,16 @@ public class StoryController : MonoBehaviour
 		// If we've read all the content and there's no choices, the story is finished!
 		else
 		{
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate {
-				StartStory();
-			});
-		}
-	}
-	void RemoveChildren()
-	{
-		int childCount = canvas.transform.childCount;
-		for (int i = childCount - 1; i >= 0; --i)
-		{
-			Destroy(canvas.transform.GetChild(i).gameObject);
-		}
-	}
-	void RemoveButtonCanvasChildren()
-	{
-		int childCount = canvas_ForOption.transform.childCount;
-		for (int i = childCount - 1; i >= 0; --i)
-		{
-			Destroy(canvas_ForOption.transform.GetChild(i).gameObject);
+			//Button choice = CreateChoiceView("End of story.\nRestart?");
+			//choice.onClick.AddListener(delegate {
+			//	StartStory();
+			//});
 		}
 	}
 	void OnClickChoiceButton(Choice choice)
 	{
 		story.ChooseChoiceIndex(choice.index);
 		RefreshView();
-	}
-	// Creates a textbox showing the the line of text
-	void CreateContentView(string text)
-	{
-		//Text storyText = Instantiate(textPrefab) as Text;
-		//storyText.text = text;
-		//storyText.transform.SetParent(canvas.transform, false);
-	}
-	// Creates a button showing the choice text
-	Button CreateChoiceView(string text)
-	{
-		// Creates the button from a prefab
-		Button choice = Instantiate(buttonPrefab) as Button;
-		choice.transform.SetParent(canvas_ForOption.transform, false);
-
-		// Gets the text from the button prefab
-		Text choiceText = choice.GetComponentInChildren<Text>();
-		choiceText.text = text;
-
-		// Make the button expand to fit the text
-		HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
-		layoutGroup.childForceExpandHeight = false;
-
-		return choice;
 	}
 	private void DisplayStoryMessage(string curText)
 	{
@@ -187,12 +150,49 @@ public class StoryController : MonoBehaviour
 		// 自动滚动到最下方
 		ScrollToBottom();
 	}
+	private void DisplayAIMessage(string curText)
+	{
+		// 实例化消息预构体
+		GameObject storyItemGO = Instantiate(aiItemPrefab, storyListContainer);
+
+		// 获取 ChatItemView 组件并设置消息内容
+		TextDisplay textDisplay = storyItemGO.transform.GetChild(0).GetComponent<TextDisplay>();
+
+		textDisplay.TypingText("AI: " + curText);
+
+		// 将生成的预构体添加到列表中以便管理
+		//chatPrefabs.Add(storyItemGO);
+		textDisplays.Push(textDisplay);
+		// 自动滚动到最下方
+		ScrollToBottom();
+	}
+	private IEnumerator SendMessageToLLM(string text)
+    {
+		var task = NPCMessageGenerator.GetCarAIMessage(text);
+		yield return new WaitUntil(() => task.IsCompleted);
+		string reply = task.Result;
+		DisplayAIMessage(reply);
+	}
 	private void ScrollToBottom()
 	{
 		Canvas.ForceUpdateCanvases();
 		scrollRect.verticalNormalizedPosition = 0;
 		Canvas.ForceUpdateCanvases();
 	}
+	void AIButtonFunction()
+    {
+		if (curProcessState == StoryProcessState.AIChat)
+        {
+			isTransferingToBeforState = true;
+			AITriggerButton.transform.GetComponent<Image>().color = buttonClosedColor;
+		}
+        else
+        {
+			isTransferingToAIState = true;
+			beforAIState = curProcessState;
+			AITriggerButton.transform.GetComponent<Image>().color = buttonTriggeredColor;
+		}
+    }
 	// Start is called before the first frame update
 	void Start()
     {
@@ -234,10 +234,33 @@ public class StoryController : MonoBehaviour
 						choice = story.currentChoices[i];
 					}
                 }
-
 				OnClickChoiceButton(choice);
 			}
 		}
+
+		if (curProcessState == StoryProcessState.AIChat)
+        {
+			if (Input.GetKeyDown(KeyCode.Return) && inputField.text != "")
+            {
+				string inputMessage = inputField.text;
+				inputField.text = "";
+				DisplayInputMessage(inputMessage);
+				StartCoroutine(SendMessageToLLM(inputMessage));
+			}
+
+		}
+
+		//AI State
+		if (isTransferingToAIState)
+		{
+			curProcessState = StoryProcessState.AIChat;
+			isTransferingToAIState = false;
+		}
+        if (isTransferingToBeforState)
+        {
+			curProcessState = beforAIState;
+			isTransferingToBeforState = false;
+        }
 
 		// on enter and exit
 		if (curProcessState != preProcessState)
@@ -248,6 +271,8 @@ public class StoryController : MonoBehaviour
 				case StoryProcessState.PressEnter:
 					break;
 				case StoryProcessState.InputText:
+					break;
+				case StoryProcessState.AIChat:
 					break;
 				default:
 					break;
@@ -260,6 +285,9 @@ public class StoryController : MonoBehaviour
 					inputField.interactable = false;
 					break;
 				case StoryProcessState.InputText:
+					inputField.interactable = true;
+					break;
+				case StoryProcessState.AIChat:
 					inputField.interactable = true;
 					break;
 				default:
