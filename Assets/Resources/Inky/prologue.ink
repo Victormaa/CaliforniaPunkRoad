@@ -33,7 +33,8 @@ VAR previous_knot = ""
 
 +sing/hum -> Scene2(1)//正确的指令跳到下一个场景
 +[turn off] -> Scene1a
-+[-1] -> destination
++[think] -> destination
++[-1] -> otherwise
 
 
 ===Scene1a===
@@ -69,9 +70,10 @@ But beneath the song’s lighthearted, breezy tune, the lyrics carry a quiet, un
 -> Scene3(num + 1)
 
 === Question2===
+~previous_knot = -> Question2
 +[talk/mock/scold/laugh]->Scene4(1)
 +[look/think/wait]->Scene3a
-
++[-1] -> otherwise
 ===Scene3a===
 {“What’s the matter? Cat got your tongue? Humans always do this — when faced with facts, silence becomes the only weapon. Too bad, logically speaking, it’s not much of a deterrent.”|You need to come up with something to fire back.}->Question2
 
@@ -102,8 +104,11 @@ TODO:丹尼尔和AI基本信息
 -> Scene5(num + 1)
 
 === Question3===
+~previous_knot = -> Question3
 +[west/go west]->Scene6(1)
 +[east/go east]->Scene5a
++[think] -> destination
++[-1] -> otherwise
 ===Scene5a===
 You hesitate for a moment, gripping the wheel as you consider turning onto the eastbound ramp.
 
@@ -143,9 +148,12 @@ XN701’s projection flickers lightly on the dashboard. Its voice, calmer than u
 -> Scene7(num + 1)
 
 === Question4===
+~previous_knot = -> Question4
 +[turn/turn on/turn on lights]->Scene8
 +[slow]->Scene7a
 +[stop]->Scene7b
++[think] -> destination
++[-1] -> otherwise
 ===Scene7a===
 “Good. Slowing down is the smart choice. With current visibility, your safe driving speed shouldn’t exceed 30 miles per hour.”
 
@@ -179,9 +187,12 @@ Outside, everything seems swallowed by the fog — even the roadside signs blur 
 + [Press Enter]
 -> Scene9(num + 1)
 ===Question5===
+~previous_knot = -> Question5
 +[continue/drive/keep/keep on]->Scene10
 +[stop]->Death
 +[talk]->Scene9a
++[think] -> destination
++[-1] -> otherwise
 === Scene9a===
 “Good job, buddy. This fog won’t last forever. Stay focused on what’s ahead and keep driving — your destination’s waiting for you, even if you can’t see it yet.”->Question5
 === Scene10===
@@ -194,7 +205,7 @@ You feel a violent impact from behind, then lose consciousness. Everthing fades 
 
 
 
-TODO：如何让以下a节点成为上述任何一个Question节点？
+TODO：提示场景
 ===destination===//本次出行目的地的说明,在a节点输入where/think/wait/memory的时候跳到此节点，并在结束时回到a节点
 {Your destination for this road trip is La Jolla, in San Diego.|Like it’s mentioned, you’re just an ordinary office worker. After five days of grind, weekends are your only chance to catch a breath. And your favorite escape? Driving out to La Jolla’s coastline to meet up with a long-time friend.|XN701 loves to analyze your mood, critique your driving, and — every so often — tease you about whether this “friend” is the real reason you keep coming back here.|But no matter what, La Jolla has become your weekend ritual, a brief escape from the grind of daily life.} 
 +[Press Enter] -> previous_knot
