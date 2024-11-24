@@ -158,7 +158,7 @@ public class StoryController : MonoBehaviour
 		// 获取 ChatItemView 组件并设置消息内容
 		TextDisplay textDisplay = storyItemGO.transform.GetChild(0).GetComponent<TextDisplay>();
 
-		textDisplay.TypingText("AI: " + curText);
+		textDisplay.TypingText("XN701: " + curText);
 
 		// 将生成的预构体添加到列表中以便管理
 		//chatPrefabs.Add(storyItemGO);
