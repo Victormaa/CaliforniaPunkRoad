@@ -89,7 +89,7 @@ public class StoryController : MonoBehaviour
 		{
 			// define process state
 			curProcessState = StoryProcessState.PressEnter;
-			if (story.currentChoices.Count > 1 || story.currentChoices[0].text != "Press Enter")
+			if (story.currentChoices.Count > 1 || (story.currentChoices[0].text != "Press Enter" && story.currentChoices[0].text != "press enter"))
 				curProcessState = StoryProcessState.InputText;
 
 			//for (int i = 0; i < story.currentChoices.Count; i++)
@@ -201,6 +201,8 @@ public class StoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString()); //previous_knot  current_scene_image
+
 		// on update => state change
 		if (curProcessState == StoryProcessState.PressEnter)
         {

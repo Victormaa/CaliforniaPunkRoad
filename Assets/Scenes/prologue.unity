@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acc868a50367e24380272faea83c99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 3b2ec36bacc99574bb82822d58bde13e, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: ee55a9bb4ca8b65498de436e5574acf6, type: 3}
   storyListContainer: {fileID: 1710244420}
   storyItemPrefab: {fileID: 1324727463205592911, guid: f95421690e1f8264eacda1191c4512f2, type: 3}
   scrollRect: {fileID: 1229475530}

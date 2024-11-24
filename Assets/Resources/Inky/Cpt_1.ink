@@ -1,4 +1,5 @@
 VAR previous_knot = ""
+VAR current_scene_image = ""
 -> Cpt1_Scene1(1)
 
 ===Cpt1_Scene1(num)===
@@ -18,7 +19,8 @@ VAR previous_knot = ""
 
     -8:You’re still reeling, trying to process what you just saw, when another car follows suit, descending in the same impossible manner, as if the laws of physics decided to take a break.
 
-    -9:“The second one, Daniel. This isn’t random.”
+    -9: 
+    “The second one, Daniel. This isn’t random.” 
 
     -10:A pause.
 
@@ -284,10 +286,10 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
  
 ===destination===//本次出行目的地的说明,在a节点输入where/think/wait/memory的时候跳到此节点，并在结束时回到a节点
 {Your destination for this road trip is La Jolla, in San Diego.|Like it’s mentioned, you’re just an ordinary office worker. After five days of grind, weekends are your only chance to catch a breath. And your favorite escape? Driving out to La Jolla’s coastline to meet up with a long-time friend.|XN701 loves to analyze your mood, critique your driving, and — every so often — tease you about whether this “friend” is the real reason you keep coming back here.|But no matter what, La Jolla has become your weekend ritual, a brief escape from the grind of daily life.} 
-+ [enter] -> previous_knot
++ [press enter] -> previous_knot
 ===otherwise===//同上。输入任何错误拼写和非选项内的词
 You can't do this right now.
-+ [enter] -> previous_knot
++ [press enter] -> previous_knot
 ===go===//在任意节点输入go后跳到此再返回上一节点
 where to go?
-+ [enter] -> previous_knot
++ [press enter] -> previous_knot
