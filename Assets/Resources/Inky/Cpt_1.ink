@@ -29,7 +29,7 @@ VAR current_scene_image = ""
     -else: ->Question1
 }
 
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene1(num+1)
 
 ===Question1===
@@ -38,7 +38,7 @@ VAR current_scene_image = ""
  +[Stop]-> Cpt1_Scene1a
  +[else]->otherwise
  +[where/think/wait/memory]->destination
- 
+ +[-1] ->otherwise
  
 ===Cpt1_Scene1a===
  You press the brakes, bringing the car to a gradual stop on the shoulder, trying to assess the strange situation unfolding in front of you.
@@ -74,7 +74,7 @@ VAR current_scene_image = ""
     -else: ->Question2
 }
 
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene2(num+1)
 
 ===Question2===
@@ -83,7 +83,7 @@ VAR current_scene_image = ""
 +[Pick/Touch]->Cpt1_Scene2a
 +[else]->otherwise
 +[where/think/wait/memory]->destination
- 
++[-1] ->otherwise
 
 ===Cpt1_Scene2a===
 You roll down the window and cautiously reach out to grab one of the floating papers. 
@@ -135,7 +135,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
      -else: ->Question3
 }
 
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene3(num+1)
 
 ===Question3===
@@ -143,7 +143,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 +[Analyze]->Cpt1_Scene4(1)
 +[else]->otherwise
 +[where/think/wait/memory]->destination
-
++[-1] ->otherwise
 ===Cpt1_Scene4(num)
     {num:
     -1:You activate the car’s deep analysis module once again. 
@@ -183,7 +183,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
     
     -else: ->Question4
 }
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene4(num+1)
 
 ===Question4===
@@ -192,7 +192,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 +[Touch]->Cpt1_Scene4a
 +[else]->otherwise
 +[where/think/wait/memory]->destination
-
++[-1] ->otherwise
 ===Cpt1_Scene4a===
 You edge your car closer to one of the suspended vehicles, rolling down your window as you pull up to its level. 
 
@@ -223,7 +223,7 @@ When it hovers low enough, you instinctively reach out, intending to touch the c
 
     -else: ->Question5
 }
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene5(num+1)
 
 ===Question5===
@@ -232,7 +232,7 @@ When it hovers low enough, you instinctively reach out, intending to touch the c
 +[Wait]->Cpt1_Scene5a
 +[else]->otherwise
 +[where/think/wait/memory]->destination
-
++[-1] ->otherwise
 ===Cpt1_Scene5a===
 You press the brakes and pull over to the side of the road, watching as the vehicles vanish one by one in a surreal, almost choreographed display.
 
@@ -260,7 +260,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
     -7:Sensing your unease, XN701 speaks in a more reassuring tone: “Maybe it’s time to get out of this area — see what lies ahead.”
     -else: ->Question6
 }
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene6(num+1)
 
 ===Question6===
@@ -268,7 +268,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 +[Drive/Move]->Cpt1_Scene7(1)
 +[else]->otherwise
 +[where/think/wait/memory]->destination
-
++[-1] ->otherwise
 ===Cpt1_Scene7(num)===
     {num:
     -1:You press down on the accelerator, heading toward the unknown stretch of road ahead.
@@ -278,7 +278,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
     -3:The only thing you’re certain of now is that there’s no turning back.
     -> END
      }
-+[press enter]
++[Press Enter]
 -> Cpt1_Scene7(num+1)
 ->END
 
@@ -286,10 +286,10 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
  
 ===destination===//本次出行目的地的说明,在a节点输入where/think/wait/memory的时候跳到此节点，并在结束时回到a节点
 {Your destination for this road trip is La Jolla, in San Diego.|Like it’s mentioned, you’re just an ordinary office worker. After five days of grind, weekends are your only chance to catch a breath. And your favorite escape? Driving out to La Jolla’s coastline to meet up with a long-time friend.|XN701 loves to analyze your mood, critique your driving, and — every so often — tease you about whether this “friend” is the real reason you keep coming back here.|But no matter what, La Jolla has become your weekend ritual, a brief escape from the grind of daily life.} 
-+ [press enter] -> previous_knot
++ [Press Enter] -> previous_knot
 ===otherwise===//同上。输入任何错误拼写和非选项内的词
 You can't do this right now.
-+ [press enter] -> previous_knot
++ [Press Enter] -> previous_knot
 ===go===//在任意节点输入go后跳到此再返回上一节点
 where to go?
-+ [press enter] -> previous_knot
++ [Press Enter] -> previous_knot
