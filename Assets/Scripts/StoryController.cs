@@ -44,13 +44,27 @@ public class StoryController : MonoBehaviour
 	public Button AITriggerButton;
 	// 将十六进制颜色转换为 Unity 的 Color
 	Color buttonTriggeredColor = new Color(50f / 255f, 79f / 255f, 255f / 255f);
-	Color buttonClosedColor = new Color(0f, 0f, 0f);
+	Color blackColor = new Color(0f, 0f, 0f);
+	Color whiteColor = new Color(255f, 255f, 255f);
+
+	[Header("UIButton")]
+	public Button mapButton;
+	public GameObject map;
+	private bool _isInMap;
 
 	private void Awake()
     {
 		textDisplays = new Stack<TextDisplay>();
-		inputField.interactable = false;
 		AITriggerButton.onClick.AddListener(AIButtonFunction);
+		mapButton.onClick.AddListener(MapButtonFunction);
+		InitializedGame();
+	}
+
+	void InitializedGame()
+    {
+		_isInMap = false;
+		map.SetActive(false);
+		inputField.interactable = false;
 
 		StartStory();
 	}
@@ -184,13 +198,30 @@ public class StoryController : MonoBehaviour
 		if (curProcessState == StoryProcessState.AIChat)
         {
 			isTransferingToBeforState = true;
-			AITriggerButton.transform.GetComponent<Image>().color = buttonClosedColor;
+			AITriggerButton.transform.GetComponent<Image>().color = blackColor;
 		}
         else
         {
 			isTransferingToAIState = true;
 			beforAIState = curProcessState;
 			AITriggerButton.transform.GetComponent<Image>().color = buttonTriggeredColor;
+		}
+    }
+	void MapButtonFunction()
+    {
+        if (_isInMap)
+        {
+			_isInMap = false;
+			if (map.activeSelf)
+				map.SetActive(false);
+			mapButton.image.color = blackColor;
+        }
+        else
+        {
+			_isInMap = true;
+			if(!map.activeSelf)
+				map.SetActive(true);
+			mapButton.image.color = whiteColor;
 		}
     }
 	// Start is called before the first frame update
@@ -201,6 +232,9 @@ public class StoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (_isInMap)
+			return;
+
 		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString()); //previous_knot  current_scene_image
 
 		// on update => state change

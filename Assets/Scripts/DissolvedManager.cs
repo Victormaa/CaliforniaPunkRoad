@@ -22,8 +22,8 @@ public class DissolvedManager : MonoBehaviour
             dissolvedObjects.Add(obj.transform.name, obj);
         }
 
-        currentShowingObj = dissolvedObjects["prologue_background"];
-        resovlveObject = dissolvedObjects["1"];
+        //currentShowingObj = dissolvedObjects["prologue_background"];
+        //resovlveObject = dissolvedObjects["1"];
     }
 
     public System.Collections.IEnumerator SetSceneChange(DissolveController cur, DissolveController next)
