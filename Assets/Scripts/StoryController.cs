@@ -95,7 +95,8 @@ public class StoryController : MonoBehaviour
 			// Display the text on screen!
 			//CreateContentView(text);
 			//textDisplay.TypingText(curText);
-			DisplayStoryMessage(curText);
+			if(curText != "")
+				DisplayStoryMessage(curText);
 		}
 
 		// Display all the choices, if there are any!
@@ -262,7 +263,9 @@ public class StoryController : MonoBehaviour
 				inputField.text = "";
 				DisplayInputMessage(inputMessage);
 
+				// check out how the wrong input choice settup in the inky
 				Choice choice = story.currentChoices[story.currentChoices.Count-1];
+
 				for(int i = 0; i < story.currentChoices.Count; ++i)
                 {
                     if (story.currentChoices[i].text.Contains(inputMessage))
@@ -270,6 +273,7 @@ public class StoryController : MonoBehaviour
 						choice = story.currentChoices[i];
 					}
                 }
+
 				OnClickChoiceButton(choice);
 			}
 		}
