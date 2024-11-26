@@ -1,6 +1,6 @@
 VAR previous_knot = ""
 VAR current_scene_image = ""
-->Scene1(13)
+->Scene1(7)
 
 === Scene1(num) ===
 {num:
@@ -10,18 +10,15 @@ VAR current_scene_image = ""
     - 4: You know this routine too well. Just as people say that driving is like encasing your body in metal, giving you a second life for the road.
     - 5: As the scenery blurs past, yesterday’s thoughts fade into a vague haze of nostalgia. All that remains is the road ahead, leading to an uncertain future.
     - 6:“Hey, hey, slow down. According to the California Vehicle Code, you’re just a hair away from speeding.”
-    - 7:It pauses, or at least seems to, then continues without missing a beat:
-“You really wanna keep flooring it like that? Or should I calculate the probability of you getting a ticket?”
+    - 7:It pauses, or at least seems to, then continues without missing a beat: “You really wanna keep flooring it like that? Or should I calculate the probability of you getting a ticket?”
     - 8:No breathing, no stutters, no imperfections — the way it talks lacks the flaws of real human speech, rolling on like a machine without pause:
     - 9:“Every ten minutes, there’s a car accident somewhere on California’s roads. Do the math — how many cars won’t make it to their destination while we’re having this chat?”
     - 10:“My job’s to keep you safe, but sometimes I gotta ask — are you even trying to be protected?”
     - 11:Maybe it’s guilt. Maybe it’s self-preservation kicking in. Either way, your right foot instinctively eases off the gas pedal.
  //传来电台的乐曲声，是丹尼尔曾经最喜欢的歌曲《The Death of You and Me》
     - 12:That tiny 10cm-tall projection scans your preferences in seconds, reading your body temperature, expression, and even your heartbeat to gauge exactly how you’re feeling.
-    - 13:Moments later, the car radio switches over to Echo Drift Radio and starts playing *The Death of You and Me.*
-        It’s your favorite song.
-    - 14:The clean strumming of an acoustic guitar flows through the car, soft and inviting, its melody blending seamlessly with the moment.
-        By the time the first lyrics come on, you can’t help but wanting to hum along.
+    - 13:Moments later, the car radio switches over to Echo Drift Radio and starts playing *The Death of You and Me.* It’s your favorite song.
+    - 14:The clean strumming of an acoustic guitar flows through the car, soft and inviting, its melody blending seamlessly with the moment. By the time the first lyrics come on, you can’t help but wanting to hum along.
     - else: -> pr_Question1//第一次输入指令部分
 }
 
