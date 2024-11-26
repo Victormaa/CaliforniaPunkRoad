@@ -268,10 +268,15 @@ public class StoryController : MonoBehaviour
 
 				for(int i = 0; i < story.currentChoices.Count; ++i)
                 {
-                    if (story.currentChoices[i].text.Contains(inputMessage))
+					string[] choicesWords = story.currentChoices[i].text.Split('/');
+					for(int n = 0; n < choicesWords.Length; ++n)
                     {
-						choice = story.currentChoices[i];
-					}
+						if (inputMessage == choicesWords[n])
+                        {
+							choice = story.currentChoices[i];
+							break;
+						}
+                    }
                 }
 
 				OnClickChoiceButton(choice);
