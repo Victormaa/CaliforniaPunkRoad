@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textUI: {fileID: 9213440152609569262}
-  letterDelay: 0.05
+  letterDelay: 0.01
   audioSource: {fileID: 0}
   typeSounds:
   - {fileID: 8300000, guid: dbf6cd1e70809d84aa7ba7dfe8769240, type: 3}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2042523, g: 0.38679248, b: 0.06020827, a: 0.5686275}
+  m_Color: {r: 0.2042523, g: 0.38679248, b: 0.06020827, a: 0.33333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

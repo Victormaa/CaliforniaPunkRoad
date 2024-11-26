@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 490, y: 100}
+  m_AnchoredPosition: {x: 0, y: 18.918274}
+  m_SizeDelta: {x: 490, y: 137.8365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4818226312983286014
 CanvasRenderer:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0.5686275}
+  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0.27450982}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 444, y: 70}
+  m_AnchoredPosition: {x: -0.8225, y: -0}
+  m_SizeDelta: {x: 460.4507, y: 111.1266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5551205669269358568
 CanvasRenderer:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 20
   m_fontSizeMax: 24
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textUI: {fileID: 3937811850945076593}
-  letterDelay: 0.05
+  letterDelay: 0.025
   audioSource: {fileID: 0}
   typeSounds:
   - {fileID: 8300000, guid: dbf6cd1e70809d84aa7ba7dfe8769240, type: 3}
