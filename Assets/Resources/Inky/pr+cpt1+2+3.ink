@@ -1,5 +1,5 @@
 VAR previous_knot = ""
-VAR current_scene_image = ""
+VAR current_scene_image = "sun"
 ->Scene1(1)
 
 === Scene1(num) ===

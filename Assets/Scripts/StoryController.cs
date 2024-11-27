@@ -52,6 +52,8 @@ public class StoryController : MonoBehaviour
 	public GameObject map;
 	private bool _isInMap;
 
+	[Header("BackGround")]
+	public DissolvedManager dissolvedManager;
 	private void Awake()
     {
 		textDisplays = new Stack<TextDisplay>();
@@ -236,7 +238,9 @@ public class StoryController : MonoBehaviour
 		if (_isInMap)
 			return;
 
-		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString()); //previous_knot  current_scene_image
+		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString());
+		StartCoroutine( dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, currentSceneImage));
+
 
 		// on update => state change
 		if (curProcessState == StoryProcessState.PressEnter)
