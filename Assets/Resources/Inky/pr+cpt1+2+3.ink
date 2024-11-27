@@ -408,7 +408,7 @@ When it hovers low enough, you instinctively reach out, intending to touch the c
     -5:But as you move forward slowly, one of the cars at the front suddenly begins to change. Tiny points of light appear on its surface, spreading rapidly like pixelated patterns consuming the entire vehicle.
 
     -6:The car’s outline becomes fuzzier with each passing second, until the entire structure starts to disintegrate, breaking down into countless shimmering particles that scatter like grains of sand in the wind.
-
+~current_scene_image = "light"
     -7:Before long, more suspended cars follow suit, breaking apart in the same manner. 
 
     -8:One by one, they dissolve into bursts of light, as though they were never physical objects to begin with — just virtual data being systematically deleted from this reality.
