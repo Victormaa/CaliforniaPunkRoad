@@ -3,6 +3,7 @@ VAR current_scene_image = ""
 ->Scene1(1)
 
 === Scene1(num) ===
+~current_scene_image = "sun"
 {num:
     - 1: Check the blind spot. Turn the wheel.
     - 2: The sunlight streaming through the windshield is sharp, almost blinding.
@@ -136,6 +137,7 @@ But as you press on, a faint blur of white begins to appear along the edges of t
 
 XN701’s projection flickers lightly on the dashboard. Its voice, calmer than usual, breaks the silence:
     - 3:“Fog alert. Visibility ahead is less than 50 meters. Based on current road conditions, I strongly recommend you take immediate action.”
+~current_scene_image = "fog"
     - else:->pr_Question4
 }
 + [Press Enter]
@@ -321,7 +323,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
     -15:The image of those floating, poem-filled papers still lingers in your mind, refusing to fade. 
 
     -16:But as your gaze shifts to the roadside signs, a new wave of unease washes over you.
-
+~current_scene_image = "url"
     -17:The signs, which should have displayed names of towns and distances, are completely scrambled.
 
     -18:Instead of place names, they now show strings of URL links and unfamiliar text.
@@ -367,7 +369,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 
     -12:You barely have a second to process the blog title before XN701 yanks your attention back to the road with an urgent shout:
     -13:“Buddy, look outside! Now!”
-
+~current_scene_image = "sky"
     -14:The cars that were crawling forward moments ago are now eerily frozen, suspended mid-air.
 
     -15:Some hover about half a meter off the ground, their wheels completely still, gently swaying like weightless objects in zero gravity.
