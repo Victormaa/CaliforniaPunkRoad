@@ -241,11 +241,10 @@ public class StoryController : MonoBehaviour
 		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString());
 		StartCoroutine( dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, currentSceneImage));
 
-
 		// on update => state change
 		if (curProcessState == StoryProcessState.PressEnter)
         {
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0))
             {
 				if(textDisplays.TryPeek(out TextDisplay tempText))
                 {
@@ -261,6 +260,9 @@ public class StoryController : MonoBehaviour
 
 		if (curProcessState == StoryProcessState.InputText)
         {
+			inputField.ActivateInputField(); // 激活输入框
+			inputField.Select(); // 选择输入框
+
 			if (Input.GetKeyDown(KeyCode.Return) && inputField.text != "")
             {
 				string inputMessage = inputField.text;
