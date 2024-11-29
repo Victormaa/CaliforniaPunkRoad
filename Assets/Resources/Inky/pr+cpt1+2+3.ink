@@ -1,6 +1,24 @@
 VAR previous_knot = ""
 VAR current_scene_image = "sun"
-->Scene1(1)
+-> tutorial(1)
+
+=== tutorial(num) ===
+{num:
+    - 1: Welcome to the journey. Before we begin, let’s go over a few things to help you navigate the story.
+    - 2: To interact with the game, type action words. Here are some examples:
+    - 3: Enter "go" : To move to a new location.
+    - 4: Enter "talk" : To start a conversation.
+    - 5: Enter "scan" : To examine your surroundings.
+    - 6: Don’t be afraid to experiment! Your choices and actions shape the path ahead.
+    - 7: When you're ready to begin, type "start" to hit the road.
+    - else: -> wait_for_start
+}
+
++ [Press Enter] -> tutorial(num + 1)
+
+=== wait_for_start ===
++ [start] -> Scene1(1)
+
 
 === Scene1(num) ===
 ~current_scene_image = "sun"
@@ -212,7 +230,7 @@ You feel a violent impact from behind, then lose consciousness. Everthing fades 
     
     -5:You ease off the gas and glance around, trying to figure out what’s causing the hold-up. There’s no sign of an accident, no flashing lights — just cars, packed together, inexplicably stuck.
     -6:But just as you’re about to accept it as an ordinary jam, something slams your nerves into overdrive — a car, out of nowhere, plummets from the sky.
-
+~current_scene_image = "car"
     -7:It falls with an uncanny grace, landing at a perfect angle in an empty gap on the road ahead. No crash, no tumble, no visible damage. Its wheels touch the pavement smoothly, and it glides right into the flow of traffic like it’s been there all along.
 
     -8:You’re still reeling, trying to process what you just saw, when another car follows suit, descending in the same impossible manner, as if the laws of physics decided to take a break.
@@ -265,7 +283,7 @@ You feel a violent impact from behind, then lose consciousness. Everthing fades 
     -9:Your eyes fix on a particular cluster, but then something strange begins to happen.
 
     -10:Petals fall away, one by one, carried off by the wind. Within seconds, the flowers transform entirely, morphing into floating pieces of paper. The paper drifts weightlessly in the air, flipping gently as if on display, their surfaces covered with rows upon rows of densely packed writing.
-
+~current_scene_image = "flower1"
     -11:You blink instinctively, trying to make sense of what you’re seeing. The scene is eerily quiet, surreal. The papers hover mid-air, unaffected by the breeze, as though controlled by some unseen force.
     
     -else: ->cpt1_Question2
@@ -294,7 +312,7 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 ===Cpt1_Scene3(num)===
     {num:
     -1:You activate the car’s AI scanning module. A soft glow flickers across the dashboard as a wave of blue light spreads out, enveloping the floating pieces of paper on the roadside.
-
+~current_scene_image = "flower2"
     -2:“Analyzing… These papers aren’t made of ordinary materials. Their composition resembles some sort of energy projection but with physical properties,” XN701 explains.
 
     -3:A few seconds later, it continues:
@@ -481,7 +499,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 ===Cpt2_Scene1(num)===
     {num:
     -1:You drive all the way down Route 5, the domed clock tower of Balboa Park striking 6 p.m., the shadows of palm trees flying by. You see the high-rise of dt San Diego twinkling in the distance. As you keep driving on a spiraling ramp ascending into the sky, the scenery on either side of the road starts to shift in a way that feels downright bizarre, like two different worlds fighting for your attention.
-
+~current_scene_image = "sand"
     -2:On your left is a golden beach, sunlight glinting off fine grains of sand as waves rhythmically crash against the shore. A familiar name comes to you —— [Mission Bay].
 
     -3:To your right, an abandoned industrial wasteland looms — rust-covered factories rising like skeletal remains against the sky. 
@@ -514,7 +532,7 @@ You toy with the idea of reversing, but the road seems resolute, pulling you bac
 ===Cpt2_Scene2(num)===
     {num:
     -1:In the distance, a massive Aircraft Carrier is floating quietly in the harbor — Midway Memorial, a symbolic monument to peace and victory. Bathed in sunlight, numbers of silver aircraft gleaming, as if silently watching your journey unfold.
-
+~current_scene_image = "sculpture"
     -2: Beside it is a massive statue of a navy man holding and kissing a woman in a white dress.Standing near by is a monument with a list of names etched into the monument’s base — those who sacrificed their lives for peace.
 
     -3:But something’s clearly off. Digital ripples shimmer faintly across the monument’s surface, and the engraved names flicker with an unnatural glow, as if someone — or something — tampered with them.
@@ -744,7 +762,7 @@ Taking a sharp breath, you select erase. The screen flickers, the monument’s l
 ===Cpt2_Scene6(num)===
     {num:
     -1:The moment you make your choice, the residual light streams on the monument erupt into a blinding blue beam, shooting straight toward one side of the highway. 
-
+~current_scene_image = "road"
     -2:The searing brilliance shatters the stillness, slicing through the air like a blade. 
 
     -3:Where the light lands, it tears open the fabric of the road, revealing a brand-new path that wasn’t there before.
