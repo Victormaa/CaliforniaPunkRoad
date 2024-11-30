@@ -68,7 +68,7 @@ public class DissolvedManager : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.Alpha0))
         //{
-        //    StartCoroutine(SetSceneChange(currentShowingObj, "fog"));
+        //    StartCoroutine(SetSceneChange(currentShowingObj, "road"));
         //}
     }
 }
