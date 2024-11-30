@@ -54,6 +54,7 @@ public class StoryController : MonoBehaviour
 
 	[Header("BackGround")]
 	public DissolvedManager dissolvedManager;
+	private string curImageKey;
 	private void Awake()
     {
 		textDisplays = new Stack<TextDisplay>();
@@ -67,8 +68,9 @@ public class StoryController : MonoBehaviour
 		_isInMap = false;
 		map.SetActive(false);
 		inputField.interactable = false;
-
+		
 		StartStory();
+		curImageKey = (string)(story.variablesState["current_scene_image"].ToString());
 	}
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory()
@@ -238,8 +240,13 @@ public class StoryController : MonoBehaviour
 		if (_isInMap)
 			return;
 
-		string currentSceneImage = (string)(story.variablesState["current_scene_image"].ToString());
-		StartCoroutine( dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, currentSceneImage));
+		string nextImageKey = (string)(story.variablesState["current_scene_image"].ToString());
+
+		if(curImageKey != nextImageKey)
+        {
+			StartCoroutine( dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, nextImageKey));
+			curImageKey = nextImageKey;
+        }
 
 		// on update => state change
 		if (curProcessState == StoryProcessState.PressEnter)

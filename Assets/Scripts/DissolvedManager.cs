@@ -5,7 +5,7 @@ using UnityEngine;
 public class DissolvedManager : MonoBehaviour
 {
     // first pic name
-    private const string FIRSTPICNAME = "sun";
+    private const string FIRSTPICNAME = "fog";
 
     public Dictionary<string, DissolveController> dissolvedObjects;
                     
@@ -31,6 +31,8 @@ public class DissolvedManager : MonoBehaviour
 
     public System.Collections.IEnumerator SetSceneChange(DissolveController cur, string next)
     {
+        if (!dissolvedObjects.ContainsKey(next))
+            yield break;
         if (cur == dissolvedObjects[next])
             yield break;
 
