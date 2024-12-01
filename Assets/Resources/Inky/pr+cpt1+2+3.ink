@@ -59,13 +59,12 @@ Are you really sure about that? This is the song you want to hear right now.
 
 === Scene2(num)===
 {num:
-     - 1:You hum softly, a slight smile tugging at the corners of your lips. 
-Your fingers tap gently on the steering wheel, instinctively following the rhythm.
-Sunlight continues to spill across the highway, almost makes you forget the passage of time.
-     - 2:It’s a moment of calm, a fleeting sense of freedom, with the familiar melody serving as the perfect backdrop to your drive.
+     - 1:You hum softly, a slight smile tugging at the corners of your lips. Your fingers tap gently on the steering wheel, instinctively following the rhythm.
+     -2: Sunlight continues to spill across the highway, almost makes you forget the passage of time.
+     - 3:It’s a moment of calm, a fleeting sense of freedom, with the familiar melody serving as the perfect backdrop to your drive.
 But beneath the song’s lighthearted, breezy tune, the lyrics carry a quiet, unspoken ache.
-     - 3:You don’t dwell on it — most people don’t. It’s easier to remember the melody than the words. All the sadness, the pain, the confusion hidden in the lyrics flows by in a self-deprecating tone, sliding smoothly past people’s awareness.
-     - 4:Without realizing it, you start singing louder.
+     - 4:You don’t dwell on it — most people don’t. It’s easier to remember the melody than the words. All the sadness, the pain, the confusion hidden in the lyrics flows by in a self-deprecating tone, sliding smoothly past people’s awareness.
+     - 5:Without realizing it, you start singing louder.
      - else: -> Scene3(1)
 }
 

@@ -30,10 +30,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    if(chatController!= null)
+        //        StartCoroutine(chatController.SendMessageToLLM());// chatController.SendMessageToLLM();
+        //}
+#if !UNITY_WEBGL
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(chatController!= null)
-                StartCoroutine(chatController.SendMessageToLLM());// chatController.SendMessageToLLM();
+            Application.Quit();
         }
+#endif
     }
+
 }
