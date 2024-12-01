@@ -39,13 +39,23 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public IEnumerator LoadSceneWithFader(string fadeName)
+    public IEnumerator ShowSceneImageFader(string fadeName)
     {
         isTransitioning = true;
         spriterendererFader = easeImageParent.transform.Find(fadeName).GetComponent<ImageFader>();
         StartCoroutine(spriterendererFader.FadeInAndOut());
         yield return new WaitForSeconds(2 * spriterendererFader.fadeDuration + spriterendererFader.displayDuration);
         isTransitioning = false;
+    }
+
+    public IEnumerator LoadSceneWithFaderFader(string fadeName, string sceneName)
+    {
+        isTransitioning = true;
+        spriterendererFader = easeImageParent.transform.Find(fadeName).GetComponent<ImageFader>();
+        StartCoroutine(spriterendererFader.FadeIn());
+        yield return new WaitForSeconds(2 * spriterendererFader.fadeDuration + spriterendererFader.displayDuration);
+        isTransitioning = false;
+        LoadScene(sceneName);
     }
 
     // Update is called once per frame

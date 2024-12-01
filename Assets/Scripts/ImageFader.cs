@@ -27,7 +27,7 @@ public class ImageFader : MonoBehaviour
         yield return StartCoroutine(FadeOut());
     }
 
-    IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         float elapsedTime = 0f;
         Color color = element.color;
@@ -42,7 +42,7 @@ public class ImageFader : MonoBehaviour
         element.color = color;
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
         Color color = element.color;

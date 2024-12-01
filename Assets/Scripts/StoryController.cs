@@ -247,9 +247,18 @@ public class StoryController : MonoBehaviour
 		string easeImageKey = (string)(story.variablesState["easeImage"].ToString());
 		if(curEaseImageKey != easeImageKey)
         {
-			StartCoroutine(GameManager.Instance.LoadSceneWithFader(easeImageKey));
+			if(easeImageKey != "theend")
+            {
+				StartCoroutine(GameManager.Instance.ShowSceneImageFader(easeImageKey));
+            }
+            else
+            {
+				StartCoroutine(GameManager.Instance.LoadSceneWithFaderFader(easeImageKey, "MAP"));
+			}
+			
 			curEaseImageKey = easeImageKey;
 		}
+
 		if (GameManager.Instance.isTransitioning)
 			return;
 

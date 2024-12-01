@@ -7,10 +7,16 @@ public class StartSceneManager : MonoBehaviour
 {
     public SpriterendererFade spriterendererFade;
 
+    public GameObject interactionPanel;
+    public AnimationCurve showCurve;
+    public AnimationCurve hideCurve;
+    public float animationSpeed;
+
+    private bool isInStuff;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isInStuff = false;
     }
     IEnumerator StartGame() 
     {
@@ -42,9 +48,29 @@ public class StartSceneManager : MonoBehaviour
 
                 if(collider.name == "Stuff")
                 {
-
+                    StartCoroutine(ShowPanel(interactionPanel));
+                    
                 }
             }
         }
+    }
+
+    IEnumerator ShowPanel(GameObject CHECK1UI)
+    {
+        CHECK1UI.transform.localScale = Vector3.zero;
+        CHECK1UI.SetActive(true);
+        float timer = 0;
+        while (timer <= 1)
+        {
+            CHECK1UI.transform.localScale = Vector3.one * showCurve.Evaluate(timer);
+            timer += Time.deltaTime * animationSpeed;
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.0f);
+        isInStuff = true;
+    }
+    public void HidePanel(GameObject CHECK1UI)
+    {
+        CHECK1UI.SetActive(false);
     }
 }

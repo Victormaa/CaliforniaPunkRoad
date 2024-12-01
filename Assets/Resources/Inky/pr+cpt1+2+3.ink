@@ -1,8 +1,7 @@
 VAR previous_knot = ""
 VAR current_scene_image = ""
 VAR easeImage = ""
-//-> tutorial(1)
-->Cpt3_Scene10(10)
+-> tutorial(1)
 === tutorial(num) ===
 ~current_scene_image = "tutorial"
 {num:
