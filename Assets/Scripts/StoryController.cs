@@ -55,6 +55,8 @@ public class StoryController : MonoBehaviour
 	[Header("BackGround")]
 	public DissolvedManager dissolvedManager;
 	private string curImageKey;
+
+	private string curEaseImageKey;
 	private void Awake()
     {
 		textDisplays = new Stack<TextDisplay>();
@@ -71,6 +73,7 @@ public class StoryController : MonoBehaviour
 		
 		StartStory();
 		curImageKey = (string)(story.variablesState["current_scene_image"].ToString());
+		curEaseImageKey = "";
 	}
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory()
@@ -240,11 +243,21 @@ public class StoryController : MonoBehaviour
 		if (_isInMap)
 			return;
 
-		string nextImageKey = (string)(story.variablesState["current_scene_image"].ToString());
+		// ease in out 
+		string easeImageKey = (string)(story.variablesState["easeImage"].ToString());
+		if(curEaseImageKey != easeImageKey)
+        {
+			StartCoroutine(GameManager.Instance.LoadSceneWithFader(easeImageKey));
+			curEaseImageKey = easeImageKey;
+		}
+		if (GameManager.Instance.isTransitioning)
+			return;
 
+		// scene switch
+		string nextImageKey = (string)(story.variablesState["current_scene_image"].ToString());
 		if(curImageKey != nextImageKey)
         {
-			StartCoroutine( dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, nextImageKey));
+			StartCoroutine(dissolvedManager.SetSceneChange(dissolvedManager.currentShowingObj, nextImageKey));
 			curImageKey = nextImageKey;
         }
 

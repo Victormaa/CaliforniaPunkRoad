@@ -1,7 +1,8 @@
 VAR previous_knot = ""
 VAR current_scene_image = ""
--> tutorial(1)
-
+VAR easeImage = ""
+//-> tutorial(1)
+->Cpt3_Scene10(10)
 === tutorial(num) ===
 ~current_scene_image = "tutorial"
 {num:
@@ -22,7 +23,7 @@ VAR current_scene_image = ""
 
 
 === Scene1(num) ===
-~current_scene_image = "prologue"
+~easeImage = "prologue"
 ~current_scene_image = "sun"
 {num:
     - 1: Check the blind spot. Turn the wheel.
@@ -218,7 +219,7 @@ You feel a violent impact from behind, then lose consciousness. Everthing fades 
 
 
 //第一幕
-~current_scene_image = "scene1"
+~easeImage = "scene1"
 ===Cpt1_Scene1(num)===
     {num:
     -1:As you leave the fog-drenched stretch behind, the mist begins to lift, and the sky grows clearer.
@@ -496,7 +497,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 
 //第二幕
 
-~current_scene_image = "scene2"
+~easeImage = "scene2"
 ===Cpt2_Scene1(num)===
     {num:
     -1:You drive all the way down Route 5, the domed clock tower of Balboa Park striking 6 p.m., the shadows of palm trees flying by. You see the high-rise of dt San Diego twinkling in the distance. As you keep driving on a spiraling ramp ascending into the sky, the scenery on either side of the road starts to shift in a way that feels downright bizarre, like two different worlds fighting for your attention.
@@ -786,9 +787,8 @@ Taking a sharp breath, you select erase. The screen flickers, the monument’s l
 
 
 TODO第三章！！！！
-
-~current_scene_image = "scene3"
 ===Cpt3_Scene1(num)===
+~easeImage = "scene3"
 ~current_scene_image = "blueroad"
     {num:
     -1:The sky dims gently, a soft twilight settling over the road as the blue glow rippling like water guides the way.
@@ -1265,7 +1265,7 @@ You take a step back, ready to turn away and put as much distance as you can bet
     -10:The final image fades, your form dissolving into the torrent. The fissure snaps shut with a resounding silence, its light extinguished.
 
     -11:The road is left to the stillness of the night, nothing but a stretch of quiet darkness under an indifferent sky.
-    -else: ->END
+    -else: ->end_Scene(1)
 }
 + [Press Enter]
 -> Cpt3_Scene8(num + 1)
@@ -1285,7 +1285,7 @@ You take a step back, ready to turn away and put as much distance as you can bet
     -6:Once again, La Jolla’s coastline unfolds in your view, just as familiar as every other time you’ve been here.
 
     -7:It’s the only “truth” you can hold onto.
-    -else: ->END
+    -else: ->end_Scene(1)
 }
 + [Press Enter]
 -> Cpt3_Scene9(num + 1)
@@ -1304,10 +1304,19 @@ You take a step back, ready to turn away and put as much distance as you can bet
     -9:As humanity continues its desperate pursuit of immortality in the real world, you realize it’s not the absence of pain, but the enduring weight of memories and emotions, that defines what it means to be human.
     -10:This time, you don’t need a script to guide you. 
     -11:This time, you’ve chosen your own paths.
-    -else: ->END
+    -else: ->end_Scene(1)
 }
 + [Press Enter]
 -> Cpt3_Scene10(num + 1)
+
+===end_Scene(num)===
+{num: 
+    -1: 
+    ~easeImage = "theend"
+    -else: ->END
+    }
++ [Press Enter]
+->end_Scene(num+1)
 
 ===destination===//本次出行目的地的说明,在a节点输入where/think/wait/memory的时候跳到此节点，并在结束时回到a节点
 {Your destination for this road trip is La Jolla, in San Diego.|Like it’s mentioned, you’re just an ordinary office worker. After five days of grind, weekends are your only chance to catch a breath. And your favorite escape? Driving out to La Jolla’s coastline to meet up with a long-time friend.|XN701 loves to analyze your mood, critique your driving, and — every so often — tease you about whether this “friend” is the real reason you keep coming back here.|But no matter what, La Jolla has become your weekend ritual, a brief escape from the grind of daily life.} 

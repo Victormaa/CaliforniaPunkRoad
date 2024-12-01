@@ -5,7 +5,7 @@ using UnityEngine;
 public class DissolvedManager : MonoBehaviour
 {
     // first pic name
-    private const string FIRSTPICNAME = "fog";
+    private const string FIRSTPICNAME = "tutorial";
 
     public Dictionary<string, DissolveController> dissolvedObjects;
                     

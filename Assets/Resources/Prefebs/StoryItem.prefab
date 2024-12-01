@@ -227,5 +227,5 @@ MonoBehaviour:
   letterDelay: 0.025
   audioSource: {fileID: 0}
   typeSounds:
-  - {fileID: 8300000, guid: dbf6cd1e70809d84aa7ba7dfe8769240, type: 3}
+  - {fileID: 8300000, guid: 8521a4a268ff51d4a9017147e9184bfb, type: 3}
   isTyping: 0

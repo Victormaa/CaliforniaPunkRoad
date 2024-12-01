@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class GameManager : MonoBehaviour
     public AIChatController chatController;
 
     public AudioSource publicAudioSource;
+
+    public GameObject easeImageParent;
+
+    private ImageFader spriterendererFader;
+
+    public bool isTransitioning;
 
     public static GameManager Instance
     {
@@ -25,6 +32,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public IEnumerator LoadSceneWithFader(string fadeName)
+    {
+        isTransitioning = true;
+        spriterendererFader = easeImageParent.transform.Find(fadeName).GetComponent<ImageFader>();
+        StartCoroutine(spriterendererFader.FadeInAndOut());
+        yield return new WaitForSeconds(2 * spriterendererFader.fadeDuration + spriterendererFader.displayDuration);
+        isTransitioning = false;
     }
 
     // Update is called once per frame
