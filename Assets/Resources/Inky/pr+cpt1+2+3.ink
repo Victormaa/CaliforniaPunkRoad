@@ -3,6 +3,7 @@ VAR current_scene_image = ""
 -> tutorial(1)
 
 === tutorial(num) ===
+~current_scene_image = "tutorial"
 {num:
     - 1: Welcome to the journey. Before we begin, let’s go over a few things to help you navigate the story.
     - 2: To interact with the game, type action words. Here are some examples:
@@ -21,6 +22,7 @@ VAR current_scene_image = ""
 
 
 === Scene1(num) ===
+~current_scene_image = "prologue"
 ~current_scene_image = "sun"
 {num:
     - 1: Check the blind spot. Turn the wheel.
@@ -216,7 +218,7 @@ You feel a violent impact from behind, then lose consciousness. Everthing fades 
 
 
 //第一幕
-
+~current_scene_image = "scene1"
 ===Cpt1_Scene1(num)===
     {num:
     -1:As you leave the fog-drenched stretch behind, the mist begins to lift, and the sky grows clearer.
@@ -494,7 +496,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 
 //第二幕
 
-
+~current_scene_image = "scene2"
 ===Cpt2_Scene1(num)===
     {num:
     -1:You drive all the way down Route 5, the domed clock tower of Balboa Park striking 6 p.m., the shadows of palm trees flying by. You see the high-rise of dt San Diego twinkling in the distance. As you keep driving on a spiraling ramp ascending into the sky, the scenery on either side of the road starts to shift in a way that feels downright bizarre, like two different worlds fighting for your attention.
@@ -656,6 +658,7 @@ You avert your eyes, opting to leave the glowing text alone.
 ->cpt2_Question4
 
 ===Cpt2_Scene5(num)===
+~current_scene_image = "words"
     {num:
     -1:You activate the car’s scanning system. A soft blue wave of light sweeps over the display, decoding the pulsing data stream.
 
@@ -784,8 +787,9 @@ Taking a sharp breath, you select erase. The screen flickers, the monument’s l
 
 TODO第三章！！！！
 
-
+~current_scene_image = "scene3"
 ===Cpt3_Scene1(num)===
+~current_scene_image = "blueroad"
     {num:
     -1:The sky dims gently, a soft twilight settling over the road as the blue glow rippling like water guides the way.
 
@@ -810,7 +814,7 @@ TODO第三章！！！！
     -10:The blue glow fades at the edge of the shoreline, giving way to a sky ablaze with stars and the shimmering brilliance of bioluminescent waves.
 
     -11:You park the car at the edge of the sand but leave the engine humming faintly, a low, steady beat against the night. 
-
+~current_scene_image = "sea"
     -12:Slipping on the headset that keeps you tethered to XN701, you step out and begin your slow walk toward the water.
 
     -13:Your feet sink slightly into the soft sand with each step, and for a fleeting moment, the sensation stirs echoes of childhood memories — simpler times when the world felt smaller, kinder.
@@ -908,7 +912,7 @@ You reach out to pick up one of the objects, but the moment your fingers graze i
     -8:Rising to your feet, your gaze drifts toward a solitary, abandoned shack at the far end of the beach.
 
     -9:It stands there, forlorn and isolated, as if it belongs only to you and the sea at this moment.
-
+~current_scene_image = "end"
     -10:As you approach, you notice faint symbols etched into the doorframe. 
 
     -11:Inside, the walls are adorned with broken projection devices, their surfaces corroded and screens flickering faintly. 
@@ -973,7 +977,7 @@ You reach out to pick up one of the objects, but the moment your fingers graze i
 //**离开小屋后，丹尼尔看见不远处“朋友”出现，身着日常服装，正坐在岩石上招手**
 
     -13:You step out of the shack, taking deep, deliberate breaths as if the salty sea air could somehow steady your nerves.
-
+~current_scene_image = "sea"
     -14:At the far end of the glowing path, a blurred silhouette begins to sharpen against the horizon.
 
     -15:The breeze carries the scent of salt and dampness, brushing against your face. Sitting casually on a rock not far away is a figure, waving at you.
