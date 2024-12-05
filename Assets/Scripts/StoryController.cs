@@ -64,7 +64,6 @@ public class StoryController : MonoBehaviour
 		mapButton.onClick.AddListener(MapButtonFunction);
 		InitializedGame();
 	}
-
 	void InitializedGame()
     {
 		_isInMap = false;
@@ -273,7 +272,9 @@ public class StoryController : MonoBehaviour
 		// on update => state change
 		if (curProcessState == StoryProcessState.PressEnter)
         {
-			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0))
+			if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Mouse0)) && 
+				!mapButton.GetComponent<ButtonParameter>().isPointerInside &&
+				!AITriggerButton.GetComponent<ButtonParameter>().isPointerInside)
             {
 				if(textDisplays.TryPeek(out TextDisplay tempText))
                 {

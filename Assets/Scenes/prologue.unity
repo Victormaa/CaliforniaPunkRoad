@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 80362218}
   - component: {fileID: 80362217}
   - component: {fileID: 80362220}
+  - component: {fileID: 80362221}
   m_Layer: 0
   m_Name: AITriggerButton
   m_TagString: Untagged
@@ -574,6 +575,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatStrength: 1.5
   floatSpeed: 2
+--- !u!114 &80362221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80362215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf5f4db37f2b1443858da20e35b5711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPointerInside: 0
 --- !u!1 &173804976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,12 +1822,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 80362216}
   - {fileID: 2005116487}
-  - {fileID: 1718817615}
   - {fileID: 621310070}
   - {fileID: 858613462}
   - {fileID: 626190655}
+  - {fileID: 1718817615}
+  - {fileID: 80362216}
   m_Father: {fileID: 1333785727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4044,6 +4058,7 @@ GameObject:
   - component: {fileID: 1718817617}
   - component: {fileID: 1718817616}
   - component: {fileID: 1718817619}
+  - component: {fileID: 1718817620}
   m_Layer: 0
   m_Name: MapButton
   m_TagString: Untagged
@@ -4166,6 +4181,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatStrength: 5
   floatSpeed: 2
+--- !u!114 &1718817620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718817614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf5f4db37f2b1443858da20e35b5711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPointerInside: 0
 --- !u!1 &1725867073
 GameObject:
   m_ObjectHideFlags: 0
