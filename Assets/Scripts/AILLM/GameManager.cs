@@ -41,20 +41,24 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ShowSceneImageFader(string fadeName)
     {
+        easeImageParent.SetActive(true);
         isTransitioning = true;
         spriterendererFader = easeImageParent.transform.Find(fadeName).GetComponent<ImageFader>();
         StartCoroutine(spriterendererFader.FadeInAndOut());
         yield return new WaitForSeconds(2 * spriterendererFader.fadeDuration + spriterendererFader.displayDuration);
         isTransitioning = false;
+        easeImageParent.SetActive(false);
     }
 
     public IEnumerator LoadSceneWithFaderFader(string fadeName, string sceneName)
     {
+        easeImageParent.SetActive(true);
         isTransitioning = true;
         spriterendererFader = easeImageParent.transform.Find(fadeName).GetComponent<ImageFader>();
         StartCoroutine(spriterendererFader.FadeIn());
         yield return new WaitForSeconds(2 * spriterendererFader.fadeDuration + spriterendererFader.displayDuration);
         isTransitioning = false;
+        easeImageParent.SetActive(false);
         LoadScene(sceneName);
     }
 
