@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public bool isTransitioning;
 
+    public SpriterendererFade spriterendererFade;
+
     public static GameManager Instance
     {
         get { return _instance; }
@@ -31,7 +33,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriterendererFade = GameObject.Find("Square").GetComponent<SpriterendererFade>();
+        StartCoroutine(spriterendererFade.FadeOut());
     }
 
     public void LoadScene(string sceneName)

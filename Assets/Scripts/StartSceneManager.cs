@@ -11,8 +11,8 @@ public class StartSceneManager : MonoBehaviour
     public AnimationCurve showCurve;
     public AnimationCurve hideCurve;
     public float animationSpeed;
-
     private bool isInStuff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +20,10 @@ public class StartSceneManager : MonoBehaviour
     }
     IEnumerator StartGame() 
     {
-        StartCoroutine(spriterendererFade.FadeInAndOut());
+        StartCoroutine(spriterendererFade.FadeIn());
 
-        yield return new WaitForSeconds(spriterendererFade.fadeDuration + spriterendererFade.displayDuration);
-        Color color = spriterendererFade.element.color;  color.a = 0f; spriterendererFade.element.color = color;
+        //yield return new WaitForSeconds(spriterendererFade.fadeDuration + spriterendererFade.displayDuration);
+        yield return new WaitUntil(()=>spriterendererFade.isFadeFinish);
         SceneManager.LoadScene("prologue");
     }
     // Update is called once per frame
@@ -54,7 +54,6 @@ public class StartSceneManager : MonoBehaviour
             }
         }
     }
-
     IEnumerator ShowPanel(GameObject CHECK1UI)
     {
         CHECK1UI.transform.localScale = Vector3.zero;
@@ -66,11 +65,33 @@ public class StartSceneManager : MonoBehaviour
             timer += Time.deltaTime * animationSpeed;
             yield return null;
         }
-        yield return new WaitForSeconds(1.0f);
+        CHECK1UI.transform.localScale = new Vector3(1, 1, 1);
+        yield return new WaitForSeconds(0.2f);       
         isInStuff = true;
     }
-    public void HidePanel(GameObject CHECK1UI)
+    public void TriggerHidePanel()
     {
-        CHECK1UI.SetActive(false);
+        StartCoroutine(HidePanel(interactionPanel));
+    }
+    IEnumerator HidePanel(GameObject CHECK1UI)
+    {
+        if (!isInStuff)
+            yield return null;
+        else
+        {
+            CHECK1UI.transform.localScale = Vector3.zero;
+            CHECK1UI.SetActive(true);
+            float timer = 0;
+            while (timer <= 1)
+            {
+                CHECK1UI.transform.localScale = Vector3.one * hideCurve.Evaluate(timer);
+                timer += Time.deltaTime * animationSpeed;
+                yield return null;
+            }
+            CHECK1UI.transform.localScale = new Vector3(0, 0, 0);
+            yield return new WaitForSeconds(0.2f);
+            isInStuff = false;
+        }
+        
     }
 }

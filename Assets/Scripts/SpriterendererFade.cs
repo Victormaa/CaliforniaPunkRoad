@@ -8,7 +8,7 @@ public class SpriterendererFade : MonoBehaviour
     public float delayBeforeShowing;
     public float fadeDuration;
     public float displayDuration;
-
+    public bool isFadeFinish = true;
     void Start()
     {
         Color color = element.color;
@@ -34,8 +34,10 @@ public class SpriterendererFade : MonoBehaviour
         yield return StartCoroutine(FadeOut());
     }
 
-    IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
+        isFadeFinish = false;
+
         float elapsedTime = 0f;
         Color color = element.color;
         while (elapsedTime < fadeDuration)
@@ -47,9 +49,11 @@ public class SpriterendererFade : MonoBehaviour
         }
         color.a = 1f;
         element.color = color;
+
+        isFadeFinish = true;
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
         Color color = element.color;

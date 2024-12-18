@@ -378,4 +378,8 @@ public class StoryController : MonoBehaviour
 
 		preProcessState = curProcessState;
 	}
+    private void OnEnable()
+    {
+        
+    }
 }
