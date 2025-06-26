@@ -31,7 +31,6 @@ VAR current_scene_image = ""
 
 +[Press Enter]
 -> Cpt1_Scene1(num+1)
-
 ===Question1===
  ~previous_knot = -> Question1
  +[Look/Check/Observe]->Cpt1_Scene2(1)
@@ -47,7 +46,6 @@ VAR current_scene_image = ""
 
 “Most things become clearer when you keep moving and observe from the sidelines. Trust me on this one.”
 ->Question1
-
 ===Cpt1_Scene2(num)===
     {num:
     -1:You take a deep breath, forcing yourself to stay calm, and focus your attention on the cars that had suddenly appeared.
@@ -76,7 +74,6 @@ VAR current_scene_image = ""
 
 +[Press Enter]
 -> Cpt1_Scene2(num+1)
-
 ===Question2===
  ~previous_knot = -> Question2
 +[Scan/Analyze]->Cpt1_Scene3(1)
@@ -84,7 +81,6 @@ VAR current_scene_image = ""
 +[else]->otherwise
 +[where/think/wait/memory]->destination
 +[-1] ->otherwise
-
 ===Cpt1_Scene2a===
 You roll down the window and cautiously reach out to grab one of the floating papers. 
 
@@ -94,7 +90,6 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 
 “Maybe we should try interpreting them differently instead of relying on touch. Keep analyzing, or scan for more details.”
 ->Question2
-
 ===Cpt1_Scene3(num)===
     {num:
     -1:You activate the car’s AI scanning module. A soft glow flickers across the dashboard as a wave of blue light spreads out, enveloping the floating pieces of paper on the roadside.
@@ -137,7 +132,6 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 
 +[Press Enter]
 -> Cpt1_Scene3(num+1)
-
 ===Question3===
  ~previous_knot = -> Question3
 +[Analyze]->Cpt1_Scene4(1)
@@ -185,7 +179,6 @@ But just as your fingertips brush against it, the paper emits a faint glow, then
 }
 +[Press Enter]
 -> Cpt1_Scene4(num+1)
-
 ===Question4===
  ~previous_knot = -> Question4
 +[Ask/Talk/Check]->Cpt1_Scene5(1)
@@ -200,7 +193,6 @@ When it hovers low enough, you instinctively reach out, intending to touch the c
 
 “Daniel! Pull your hand back immediately,” XN701 snaps. “The energy field around these vehicles could cause unpredictable harm. Don’t get yourself fried for curiosity’s sake.”
 ->Question4
-
 ===Cpt1_Scene5(num)===
     {num:
     -1:You glance at XN701, trying to break the tension with words, though the sight outside leaves your voice slightly shaky:
@@ -225,7 +217,6 @@ When it hovers low enough, you instinctively reach out, intending to touch the c
 }
 +[Press Enter]
 -> Cpt1_Scene5(num+1)
-
 ===Question5===
  ~previous_knot = -> Question5
 +[Observe/Scan/Analyze/Record]->Cpt1_Scene6(1)
@@ -242,7 +233,6 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 
 “If this keeps spreading, it’s not just your car that’s at risk — it could be you next. Do yourself a favor: scan it, record it, and maybe try to figure out what the hell’s actually going on.”
 ->Question5
-
 ===Cpt1_Scene6(num)===
     {num:
     -1:“The way they’re breaking apart? Classic digital cleanup vibes,” XN701 says, “These cars are acting like virtual data getting manually wiped.”
@@ -269,6 +259,7 @@ You decide to wait and let the scene play out, hoping for some clearer clues to 
 +[else]->otherwise
 +[where/think/wait/memory]->destination
 +[-1] ->otherwise
+
 ===Cpt1_Scene7(num)===
     {num:
     -1:You press down on the accelerator, heading toward the unknown stretch of road ahead.

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
+
     private static GameManager _instance;
 
     public AIChatController chatController;
@@ -18,7 +20,6 @@ public class GameManager : MonoBehaviour
     public bool isTransitioning;
 
     public SpriterendererFade spriterendererFade;
-
     public static GameManager Instance
     {
         get { return _instance; }

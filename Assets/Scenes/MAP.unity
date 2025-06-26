@@ -2170,6 +2170,7 @@ GameObject:
   - component: {fileID: 2119656712}
   - component: {fileID: 2119656711}
   - component: {fileID: 2119656713}
+  - component: {fileID: 2119656714}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -2260,6 +2261,20 @@ MonoBehaviour:
   delayBeforeShowing: 0
   fadeDuration: 2
   displayDuration: 2
+  isFadeFinish: 1
+--- !u!114 &2119656714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119656710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af06297c4d900345b80d15982fbbbcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

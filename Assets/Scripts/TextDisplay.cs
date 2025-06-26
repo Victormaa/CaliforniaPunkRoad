@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using TMPro; // 如果使用 TextMeshPro
+using UnityEngine.UI;
 
 public class TextDisplay : MonoBehaviour
 {
-    public TMP_Text textUI; // 如果使用普通 Text 改为 Text 类型
+    public Text textUI; // 如果使用普通 Text 改为 Text 类型
     public float letterDelay = 0.05f; // 每个字母显示的间隔时间
     public AudioSource audioSource; // 用于播放音效的 AudioSource
     public AudioClip[] typeSounds; // 一组文字音效
